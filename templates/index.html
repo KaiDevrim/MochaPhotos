@@ -5,9 +5,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mocha Photos</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='styles/style.css') }}"
+    />
+    <script src="{{ url_for('static',filename='js/main.js') }}"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
   </head>
 
   <body>
-    <p>Hello World</p>
+    {% set count = namespace(value=0) %}
+    <div class="main col-sm-6">
+      {% for img_path in imgs %} {% for like in likes %}
+      <div class="photos">
+        <img
+          src="../static/photos/{{img_path}}"
+          alt="Mocha"
+          id="mocha-photos"
+          class="{{count.value}}"
+          style="width: 200px"
+        />
+      </div>
+      <div class="buttons">
+        <button
+          onclick="like('{{count.value}}', '{{img_path}}')"
+          )
+          class="like {{count.value}}"
+          name="button-{{count.value}}"
+        >
+          ❤️
+        </button>
+        <p class="likes">Likes: {{like}}</p>
+      </div>
+      {% set count.value = count.value + 1 %} {% endfor %} {% endfor %}
+    </div>
   </body>
 </html>

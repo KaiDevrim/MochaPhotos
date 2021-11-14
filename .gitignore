@@ -256,3 +256,5 @@ pip-selfcheck.json
 gphoto_oauth.json
 gphtospy.log
 photoslibrary_v1.token
+static/photos/
+app.db
