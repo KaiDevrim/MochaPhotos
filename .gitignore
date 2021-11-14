@@ -254,3 +254,5 @@ pip-selfcheck.json
 # End of https://www.toptal.com/developers/gitignore/api/python,macos,flask,venv
 # Start of my manual gitignore
 gphoto_oauth.json
+gphtospy.log
+photoslibrary_v1.token
